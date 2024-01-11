@@ -94,4 +94,81 @@ const resources = [
         ]
     },
 ]
+function generateCategoryList() {
+    var categoryList = document.getElementById("categoryList");
+
+    // Loop through resources array
+    for (var i = 0; i < resources.length; i++) {
+        // Create closure to capture correct category value
+        (function () {
+            var category = resources[i].category;
+
+            // Create list item for each category
+            var listItem = document.createElement("li");
+
+            // Create heading for the category
+            var heading = document.createElement("h2");
+            heading.textContent = category;
+            heading.onclick = function() {
+                toggleInfo(category);
+            };
+
+            // Create div for additional information
+            var infoDiv = document.createElement("div");
+            infoDiv.id = category + "Info";
+            infoDiv.className = "hidden";
+
+            // Create paragraph for text
+            var textParagraph = document.createElement("p");
+            textParagraph.textContent = resources[i].text;
+
+            // Create list for sources
+            var sourcesList = document.createElement("ul");
+
+            // Loop through sources array
+            for (var j = 0; j < resources[i].sources.length; j++) {
+                var source = resources[i].sources[j];
+
+                // Create list item for each source
+                var sourceItem = document.createElement("li");
+
+                // Create anchor for the source link
+                var sourceLink = document.createElement("a");
+                sourceLink.href = source.url;
+                sourceLink.textContent = source.title;
+
+                // Append source link to list item
+                sourceItem.appendChild(sourceLink);
+
+                // Append list item to sources list
+                sourcesList.appendChild(sourceItem);
+            }
+
+            // Append heading, text, and sources list to info div
+            infoDiv.appendChild(textParagraph);
+            infoDiv.appendChild(sourcesList);
+
+            // Append heading and info div to list item
+            listItem.appendChild(heading);
+            listItem.appendChild(infoDiv);
+
+            // Append list item to category list
+            categoryList.appendChild(listItem);
+        })();
+    }
+}
+
+// Call the function to generate the category list
+generateCategoryList();
+
+// Function to toggle the visibility of the additional information
+function toggleInfo(category) {
+    var infoDiv = document.getElementById(category + "Info");
+    if (infoDiv.className === "hidden") {
+        infoDiv.className = "visible";
+    } else {
+        infoDiv.className = "hidden";
+    }
+}
+
 
