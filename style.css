@@ -59,4 +59,16 @@ nav h2:hover {
     color: var(--blå);
 }
 
+.hidden {
+    display: none;
+}
+
+#HTMLInfo {
+    display: flex;
+    flex-direction: column;
+    
+    background-color: white;
+    
+}
+
 
