@@ -9,7 +9,7 @@
     --bold : 600;
     --light : 300;
 }
- 
+
 body {
    font-family: var(--font);
    background-color: var(--grå);
@@ -17,7 +17,7 @@ body {
 
 /* Text size */
 
-h2 {
+h2 { 
     font-weight: var(--bold);
 }
 
@@ -29,46 +29,34 @@ p {
 
 #container {
     display: flex;
-    align-items: center;
     justify-content: center;
+    gap: 1rem;
     width: 100%;
     margin-top: 20%;
 }
 
-nav {
+article {
     display: flex;
-}
-
-ul {
-    display: flex;
-    list-style: none;
-    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--hvit);
+    padding: 2rem;
 }
 
 .h2Title {
     display: inline-block;
+    height: fit-content;
     padding: 1.5rem;
     padding-inline: 5rem;
     color: var(--hvit);
     background-color: var(--blå);
 }
 
-nav h2:hover {
+h2:hover {
     background-color: var(--hvit);
     color: var(--blå);
 }
 
-article {
-    background-color: var(--hvit);
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-article h2 {
-    font-weight: var(--bold);
-    color: var(--blå);
-}
 
 
 
