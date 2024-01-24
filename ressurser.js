@@ -94,4 +94,52 @@ const resources = [
         ]
     },
 ]
+//
+const categoryButton = document.getElementById("ButtonTitle") 
+
+let category = ""
+function displayCategory(){
+    let teller = 0
+    
+    resources.map(resources => {
+        teller++
+        category += `<li> <button id="${teller}" onClick="DisplayArticle(${teller})" >${resources.category}</button> </li>`
+    }
+)}
+displayCategory()
+
+
+categoryButton.innerHTML = category
+
+const article = document.getElementById("article")
+
+let articleHTML = ""
+function DisplayArticle(tellerID){
+
+    articleHTML = ""
+    teller = 0
+    resources.map(resources => {
+        teller++
+        if (teller === tellerID){
+            let listHTML = ""
+            article.innerHTML = `
+            <h2>${resources.category}</h2>
+            <p>${resources.text}</p>
+             `
+            resources.sources.map(source => {
+                listHTML += `<li><a href="${source.url}">${source.title}</a></li>`
+            })
+            article.innerHTML += `<ul>${listHTML}</ul>`
+        }   
+    })
+    
+}
+DisplayArticle(1)
+
+
+
+
+
+
+
 
