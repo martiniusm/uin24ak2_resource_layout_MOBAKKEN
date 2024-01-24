@@ -13,6 +13,7 @@
 body {
    font-family: var(--font);
    background-color: var(--grå);
+   width: 100%;
 }
 
 /* Text size */
@@ -27,16 +28,21 @@ p {
 
 /*Main*/
 
+main {
+    display: flex;
+    justify-content: center;
+}
+
 #container {
     display: flex;
-    align-items: center;
     justify-content: center;
+    margin-top: 10%;
     width: 100%;
-    margin-top: 20%;
 }
 
 nav {
     display: flex;
+    justify-content: center;
 }
 
 ul {
@@ -46,10 +52,17 @@ ul {
     gap: 1rem;
 }
 
+#ButtonTitle {
+    margin: 0;
+    padding: 0;
+}
+
 Button{
-    display: inline-block;
+    border: none;
+    font-weight: var(--bold);
+    font-size: 20px;
     padding: 1.5rem;
-    padding-inline: 5rem;
+    padding-inline: 4rem;
     color: var(--hvit);
     background-color: var(--blå);
 }
@@ -64,16 +77,28 @@ nav button:hover {
     color: var(--blå);
 }
 
-article {
+#container2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#article {
     background-color: var(--hvit);
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 1040px;
+    padding: 5rem;
 }
 
 article h2 {
     font-weight: var(--bold);
     color: var(--blå);
+}
+
+article ul {
+    flex-direction: column;
 }
 
 

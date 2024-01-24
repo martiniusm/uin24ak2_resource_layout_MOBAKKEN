@@ -114,6 +114,9 @@ categoryButton.innerHTML = category
 const article = document.getElementById("article")
 
 let articleHTML = ""
+
+let activeButton = null
+
 function DisplayArticle(tellerID){
 
     articleHTML = ""
@@ -132,6 +135,15 @@ function DisplayArticle(tellerID){
             article.innerHTML += `<ul>${listHTML}</ul>`
         }   
     })
+
+    const clickedButton = document.getElementById(`${tellerID}`);
+
+    if (activeButton) {
+        activeButton.classList.remove("active");
+    }
+
+    clickedButton.classList.add("active");
+    activeButton = clickedButton;
     
 }
 DisplayArticle(1)
