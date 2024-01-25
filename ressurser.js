@@ -121,13 +121,18 @@ categoryButton.innerHTML = category
 const article = document.getElementById("article")
 //Lager en variabel som skal inneholde html
 let articleHTML = ""
-//
+//Lager en variabel som skal brukes til active buttons
 let activeButton = null
 
+//Lager en function som skal hente ut informasjon fra arrayet og legge de inn i html article.
+//Jeg har fått hjelp av Jonas Andersen Evensen til å lage denne funksjonen.
 function DisplayArticle(tellerID){
-
+    
     articleHTML = ""
+
     teller = 0
+
+    //Lager en map som skal hente ut informasjon fra arrayet, og legge i article html.
     resources.map(resources => {
         teller++
         if (teller === tellerID){
@@ -143,6 +148,7 @@ function DisplayArticle(tellerID){
         }   
     })
 
+    //Jeg har fått hjelp av ChatGPT til å lage kode for å registrere hvilken button som er aktiv.
     const clickedButton = document.getElementById(`${tellerID}`);
 
     if (activeButton) {
@@ -153,6 +159,7 @@ function DisplayArticle(tellerID){
     activeButton = clickedButton;
     
 }
+//Kaller på funksjonen
 DisplayArticle(1)
 
 
