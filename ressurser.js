@@ -94,27 +94,34 @@ const resources = [
         ]
     },
 ]
-//
+//lager en variabel som henter ut id fra html
 const categoryButton = document.getElementById("ButtonTitle") 
 
+//Lager en variabel som skal inneholde html
 let category = ""
+
+//Lager en function som skal hente ut kategoriene fra arrayet og legge de inn i html button.
+//Lager en teller som skal brukes til å gi hver button en unik id, som senere skal kobles til article.
+
+//Jeg har fått hjelp av medstudent Jonas Andersen Evensen til å lage denne funksjonen.
 function displayCategory(){
     let teller = 0
-    
+    //Lager en map som skal hente ut kategoriene fra arrayet
     resources.map(resources => {
         teller++
         category += `<li> <button id="${teller}" onClick="DisplayArticle(${teller})" >${resources.category}</button> </li>`
     }
 )}
+//Kaller på funksjonen
 displayCategory()
 
-
+//Legger inn html i variabelen categoryButton
 categoryButton.innerHTML = category
-
+//Lager en variabel som henter ut id fra html
 const article = document.getElementById("article")
-
+//Lager en variabel som skal inneholde html
 let articleHTML = ""
-
+//
 let activeButton = null
 
 function DisplayArticle(tellerID){
